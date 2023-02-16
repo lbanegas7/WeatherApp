@@ -8,5 +8,5 @@ export interface citie{
 
 
 export interface dataCities{
-    result: citie[]
+    results: citie[]
 }
