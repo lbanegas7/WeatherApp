@@ -1,11 +1,14 @@
 import { Box, SimpleGrid, Spacer, Text, VStack } from "@chakra-ui/react";
+import { time } from "console";
 import { IconCelcius } from "./IconCelcius";
 import { IconDayCloud } from "./IconDayCloud";
 import { IconTrash } from "./IconTrash";
 
 export const CitiesGridItem = ({name, lat, lng, temperature}:{name: string; lat: number; lng: number, temperature: number}) => {
-  return (
-    <Box boxShadow='base' p={2} >
+    const days = ["Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"];
+    
+    return (
+    <Box boxShadow='base' p={2}>
       <Box>
         <Box display='flex' mb={6}>
           <IconDayCloud w='3em' h='3em' />
@@ -35,7 +38,61 @@ export const CitiesGridItem = ({name, lat, lng, temperature}:{name: string; lat:
                   w='100%'
                 >
                   <Text fontSize='lg' mt='-5px' mr='-6px'>
-                    47
+                    17
+                  </Text>
+                  <IconCelcius />
+                </Box>
+              </VStack>
+            </Box>
+            <Box _hover={{ boxShadow: "md" }}>
+              <VStack spacing={0}>
+                <Text fontSize='lg' textAlign='center' display='block' mb={1}>
+                  Ma
+                </Text>
+                <Box
+                  display='flex'
+                  alignItems='center'
+                  justifyContent='center'
+                  w='100%'
+                >
+                  <Text fontSize='lg' mt='-5px' mr='-6px'>
+                    34
+                  </Text>
+                  <IconCelcius />
+                </Box>
+              </VStack>
+            </Box>
+            <Box _hover={{ boxShadow: "md" }}>
+              <VStack spacing={0}>
+                <Text fontSize='lg' textAlign='center' display='block' mb={1}>
+                  Mi
+                </Text>
+                <Box
+                  display='flex'
+                  alignItems='center'
+                  justifyContent='center'
+                  w='100%'
+                >
+                  <Text fontSize='lg' mt='-5px' mr='-6px'>
+                    18
+                  </Text>
+                  <IconCelcius />
+                </Box>
+              </VStack>
+            </Box>
+            <Box _hover={{ boxShadow: "md" }}>
+              <VStack spacing={0}>
+                <Text fontSize='lg' textAlign='center' display='block' mb={1}>
+                  Ju
+                </Text>
+                <Box
+                  display='flex'
+                  alignItems='center'
+                  justifyContent='center'
+                  w='100%'
+                >
+                  <Text fontSize='lg' mt='-5px' mr='-6px'>
+                    21
                   </Text>
                   <IconCelcius />
                 </Box>
