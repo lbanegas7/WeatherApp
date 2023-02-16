@@ -18,6 +18,5 @@ export const InputSearchCity = () => {
       <Button colorScheme='blue' ml={3}>Buscar</Button>
       </Flex>
     </Box> 
-
   )
 }
