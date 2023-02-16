@@ -4,7 +4,7 @@ import { dataCities } from "../models/citie";
 
 
 export const useAxiosWeatherCitie = (lat:number, lng: number) => {
-    const [state, setState] = useState({ data: {}, loading: true });
+    const [state, setState] = useState<{data?: dataCities, loading: boolean}>({ loading: true });
 
     useEffect(() => {
       axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&daily=temperature_2m_max,temperature_2m_min&current_weather=true&timezone=auto`).then((res: dataCities | any) => {

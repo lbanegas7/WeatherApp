@@ -3,7 +3,7 @@ import { IconCelcius } from "./IconCelcius";
 import { IconDayCloud } from "./IconDayCloud";
 import { IconTrash } from "./IconTrash";
 
-export const CitiesGridItem = ({name, lat, lng}:{name: string; lat: number; lng: number}) => {
+export const CitiesGridItem = ({name, lat, lng, temperature}:{name: string; lat: number; lng: number, temperature: number}) => {
   return (
     <Box boxShadow='base' p={2} >
       <Box>
@@ -16,7 +16,7 @@ export const CitiesGridItem = ({name, lat, lng}:{name: string; lat: number; lng:
           <Spacer />
           <Box display='flex' alignItems='center'>
             <Text fontSize='lg' mt='-5px' mr='-6px'>
-              47
+              {temperature}
             </Text>
             <IconCelcius />
           </Box>

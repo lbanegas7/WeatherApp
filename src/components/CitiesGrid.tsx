@@ -9,16 +9,15 @@ export const CitiesGrid = ({
   dataCitie: { name: string; lat: number; lng: number };
 }) => {
   const days = ["Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"];
-  const [citiesSearch, setCitiesSearch] = useState<Array<{name: string; lat: number; lng: number}>>([])
+  const [citiesSearch, setCitiesSearch] = useState<Array<{name: string; lat: number; lng: number, temperature: number}>>([])
 
   const { data, loading } = useAxiosWeatherCitie(dataCitie.lat, dataCitie.lng);
     
     useEffect(() => {
-        if(Object.keys(data).length> 0){
-            console.log(500);
-            setCitiesSearch([...citiesSearch,{name: dataCitie.name.split(',')[0], lat:dataCitie.lat, lng: dataCitie.lng } ])
-            console.log(data);
-            
+
+        if(!!data){
+            setCitiesSearch([...citiesSearch,{name: dataCitie.name.split(',')[0], lat:dataCitie.lat, lng: dataCitie.lng, temperature: data.current_weather.temperature } ])
+            console.log(data.current_weather.temperature);
         }
     }, [data])
     

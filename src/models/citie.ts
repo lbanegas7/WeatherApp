@@ -8,5 +8,6 @@ export interface citie{
 
 
 export interface dataCities{
-    results: citie[]
+    current_weather: {temperature: number},
+    daily: Object
 }
