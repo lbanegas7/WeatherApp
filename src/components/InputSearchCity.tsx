@@ -1,10 +1,10 @@
-import { Button } from "@chakra-ui/button"
-import { Input } from "@chakra-ui/input"
+import { Input, InputGroup, InputRightElement } from "@chakra-ui/input"
 import { Box, Flex } from "@chakra-ui/layout"
-import React, { useState, useEffect } from "react"
+import { useState, useEffect, FormEvent } from "react"
 import { getMatchCities } from "../helper/getMatchCities"
 import { citie } from "../models/citie"
 import { MatchList } from "./MatchList"
+import { FaSistrix } from 'react-icons/fa'
 
 export const InputSearchCity = ({setSearchWeather}:{setSearchWeather: Function}) => {
 
@@ -13,7 +13,7 @@ export const InputSearchCity = ({setSearchWeather}:{setSearchWeather: Function})
   
   const [matchsCities, setMatchsCities] = useState<Array<{name:string, lat: number, lng: number}>>([])
 
-  const handleChangeCity = (event:React.FormEvent<HTMLInputElement>) => {
+  const handleChangeCity = (event: FormEvent<HTMLInputElement>) => {
     setNameCity(event.currentTarget.value)
     searchCoincidences();
   }
@@ -44,10 +44,15 @@ export const InputSearchCity = ({setSearchWeather}:{setSearchWeather: Function})
     <Box w='100%' p={4} mb={10} >
       <Flex justifyContent='center'>
         <Box position='relative' w='65%' >
-          <Input placeholder='Buscar ciudad' size='md' value={nameCity}  onChange={handleChangeCity} /> 
+        <InputGroup>
+          <InputRightElement
+            pointerEvents='none'
+            children={<FaSistrix fontSize='1.4em' fill="RGBA(0, 0, 0, 0.36)"/>}
+          />
+          <Input placeholder='Buscar ciudad' textTransform='capitalize' size='md' value={nameCity}  onChange={handleChangeCity} /> 
+        </InputGroup>
           <MatchList listCities={matchsCities} setCity={setCitySelect} />
         </Box>
-        <Button colorScheme='blue' ml={3} onClick={searchCitySelect}>Buscar</Button>
       </Flex>
     </Box> 
   )
