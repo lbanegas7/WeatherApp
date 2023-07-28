@@ -7,9 +7,8 @@ import { WeatherMessage } from "../components/WeatherMessage"
 export const Weather = () => {
 
   const [citie, setCitie] = useState<{name:string, lat:number, lng: number}>()
-
   return (
-    <Box p={10} w='100%' h='100vh' >
+    <Box p={10} w='100%' h='100vh'>
     <InputSearchCity setSearchWeather={setCitie} /> 
     {!!citie ? <CitiesGrid dataCitie={citie}/> : <WeatherMessage />  } 
     </Box>

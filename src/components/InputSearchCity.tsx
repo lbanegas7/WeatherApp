@@ -5,9 +5,12 @@ import { getMatchCities } from "../helper/getMatchCities"
 import { citie } from "../models/citie"
 import { MatchList } from "./MatchList"
 import { FaSistrix } from 'react-icons/fa'
+import { useDispatch } from "react-redux"
+import { getCities } from "../store/slices/autocomplete/thunks"
 
 export const InputSearchCity = ({setSearchWeather}:{setSearchWeather: Function}) => {
 
+  const dispatch = useDispatch()
   const [nameCity, setNameCity] = useState('')
   const [citySelect, setCitySelect] = useState<{name:string, lat:number, lng: number}>()
   
@@ -39,6 +42,11 @@ export const InputSearchCity = ({setSearchWeather}:{setSearchWeather: Function})
       setMatchsCities([])
     } 
   }, [citySelect])
+  
+  useEffect(() => {
+    dispatch(getCities('hola'))
+  
+  }, [])
   
   return (
     <Box w='100%' p={4} mb={10} >
